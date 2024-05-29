@@ -1,8 +1,52 @@
-<template class="bg-slate-900">
-  <div id="nav" class="absolute bg-white top-1/2 flex flex-col space-y-2 z-10">
-    <RouterLink class="bg-slate-900" to="/">Home</RouterLink>
-    <RouterLink class="bg-gray-400" to="/szolgaltatasok">Services</RouterLink>
-    <RouterLink class="bg-green-600" to="/galeria">Gallery</RouterLink>
+<template>
+  <div
+    id="nav"
+    class="rounded-r-xl overflow-hidden absolute bg-slate-100 top-1/2 -translate-y-1/2 z-10"
+  >
+    <RouterLink class="flex group" to="/">
+      <svg-icon
+        :class="[
+          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
+          isActive('/') ? 'text-blue-500' : 'text-black'
+        ]"
+        type="mdi"
+        :path="mdiHome"
+        size="65"
+      ></svg-icon>
+    </RouterLink>
+    <RouterLink class="flex group" to="/szolgaltatasok">
+      <svg-icon
+        :class="[
+          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
+          isActive('/szolgaltatasok') ? 'text-blue-500' : 'text-black'
+        ]"
+        size="65"
+        type="mdi"
+        :path="mdiRacingHelmet"
+      ></svg-icon>
+    </RouterLink>
+    <RouterLink class="flex group" to="/galeria">
+      <svg-icon
+        :class="[
+          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
+          isActive('/galeria') ? 'text-blue-500' : 'text-black'
+        ]"
+        size="65"
+        type="mdi"
+        :path="mdiImage"
+      ></svg-icon>
+    </RouterLink>
+    <RouterLink class="flex group" to="/elerhetoseg">
+      <svg-icon
+        :class="[
+          'transition-transform ease-in-out pb-1 group-hover:text-gray-600 group-hover:scale-110',
+          isActive('/elerhetoseg') ? 'text-blue-500' : 'text-black'
+        ]"
+        size="65"
+        type="mdi"
+        :path="mdiMapMarkerQuestionOutline"
+      ></svg-icon>
+    </RouterLink>
   </div>
   <router-view v-slot="{ Component }">
     <transition :name="transitionName">
@@ -12,11 +56,18 @@
 </template>
 
 <script setup>
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiHome, mdiRacingHelmet, mdiImage, mdiMapMarkerQuestionOutline } from '@mdi/js'
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-const transitionName = ref('scale-slide-left')
 const route = useRoute()
+
+const isActive = (path) => {
+  return route.path === path
+}
+
+const transitionName = ref('scale-slide-left')
 
 const setRandomTransition = () => {
   const transitions = [
