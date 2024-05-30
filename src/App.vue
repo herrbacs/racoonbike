@@ -1,7 +1,7 @@
 <template>
   <div
     id="nav"
-    class="z-10 h-16 xl:h-auto overflow-hidden absolute bg-slate-100 items-center justify-around xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2"
+    class="z-10 h-16 xl:h-auto overflow-hidden absolute bg-slate-100 items-center justify-around xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-3xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2"
   >
     <template v-for="(menu, index) in menuItems" :key="index">
       <RouterLink class="flex group" :to="menu.routeTo">
