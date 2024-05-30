@@ -1,6 +1,8 @@
 <template>
-  <div class="overflow-hidden w-full h-screen bg-green-500">
-    <h1 class="text-purple-600">Geléria</h1>
+  <div class="overflow-hidden w-full h-screen bg-green-900 flex pb-16">
+    <div class="h-full w-full flex">
+      <h1 class="text-white m-auto">Geléria</h1>
+    </div>
   </div>
 </template>
 

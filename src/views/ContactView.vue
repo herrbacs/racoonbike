@@ -1,6 +1,8 @@
 <template>
-  <div class="overflow-hidden w-full h-screen bg-blue-500">
-    <h1 class="text-purple-600">Elérhetőség</h1>
+  <div class="overflow-hidden w-full h-screen bg-blue-900 flex pb-16">
+    <div class="h-full w-full flex">
+      <h1 class="text-white m-auto">Elérhetőség</h1>
+    </div>
   </div>
 </template>
 

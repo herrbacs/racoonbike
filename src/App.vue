@@ -1,52 +1,21 @@
 <template>
   <div
     id="nav"
-    class="rounded-r-xl overflow-hidden absolute bg-slate-100 top-1/2 -translate-y-1/2 z-10"
+    class="z-10 h-16 xl:h-auto overflow-hidden absolute bg-slate-100 items-center justify-around xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2"
   >
-    <RouterLink class="flex group" to="/">
-      <svg-icon
-        :class="[
-          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
-          isActive('/') ? 'text-blue-500' : 'text-black'
-        ]"
-        type="mdi"
-        :path="mdiHome"
-        size="65"
-      ></svg-icon>
-    </RouterLink>
-    <RouterLink class="flex group" to="/szolgaltatasok">
-      <svg-icon
-        :class="[
-          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
-          isActive('/szolgaltatasok') ? 'text-blue-500' : 'text-black'
-        ]"
-        size="65"
-        type="mdi"
-        :path="mdiRacingHelmet"
-      ></svg-icon>
-    </RouterLink>
-    <RouterLink class="flex group" to="/galeria">
-      <svg-icon
-        :class="[
-          'transition-transform ease-in-out group-hover:text-gray-600 group-hover:scale-110',
-          isActive('/galeria') ? 'text-blue-500' : 'text-black'
-        ]"
-        size="65"
-        type="mdi"
-        :path="mdiImage"
-      ></svg-icon>
-    </RouterLink>
-    <RouterLink class="flex group" to="/elerhetoseg">
-      <svg-icon
-        :class="[
-          'transition-transform ease-in-out pb-1 group-hover:text-gray-600 group-hover:scale-110',
-          isActive('/elerhetoseg') ? 'text-blue-500' : 'text-black'
-        ]"
-        size="65"
-        type="mdi"
-        :path="mdiMapMarkerQuestionOutline"
-      ></svg-icon>
-    </RouterLink>
+    <template v-for="(menu, index) in menuItems" :key="index">
+      <RouterLink class="flex group" :to="menu.routeTo">
+        <svg-icon
+          :class="[
+            'transition-transform ease-in-out xl:group-hover:text-gray-600 xl:group-hover:scale-110',
+            isActive(menu.routeTo) ? 'text-blue-500' : 'text-black'
+          ]"
+          type="mdi"
+          :path="menu.icon"
+          size="65"
+        ></svg-icon>
+      </RouterLink>
+    </template>
   </div>
   <router-view v-slot="{ Component }">
     <transition :name="transitionName">
@@ -57,11 +26,18 @@
 
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiHome, mdiRacingHelmet, mdiImage, mdiMapMarkerQuestionOutline } from '@mdi/js'
+import { mdiHome, mdiRacingHelmet, mdiImage, mdiMapMarkerCircle } from '@mdi/js'
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
+
+const menuItems = [
+  { icon: mdiHome, routeTo: '/' },
+  { icon: mdiRacingHelmet, routeTo: '/szolgaltatasok' },
+  { icon: mdiImage, routeTo: '/galeria' },
+  { icon: mdiMapMarkerCircle, routeTo: '/elerhetoseg' }
+]
 
 const isActive = (path) => {
   return route.path === path
