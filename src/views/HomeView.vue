@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden w-full h-screen bg-white flex flex-col pb-16 xl:pb-0">
+  <div class="overflow-hidden w-full h-[100svh] bg-white flex flex-col pb-16 xl:pb-0">
     <div class="my-auto xl:h-5/6 w-full flex flex-col bg-white">
       <div
         class="relative w-full justify-center items-center bg-black flex flex-col mt-10 pt-10 xl:mt-20 xl:pt-20 pb-10 px-10"
@@ -49,8 +49,8 @@
         />
       </div>
     </div>
-    <div class="flex flex-col items-center w-full h-full bg-white justify-around sm:justify-end">
-      <div class="flex flex-col h-1/2">
+    <div class="flex flex-col items-center w-full h-full bg-white justify-between sm:justify-end">
+      <div class="flex flex-col h-1/2 mt-16 sm:mt-0">
         <span
           class="text-xl sm:text-4xl xl:text-4xl font-bold text-black uppercase tracking-wider text-center"
         >
