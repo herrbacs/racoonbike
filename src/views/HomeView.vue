@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden w-full h-screen bg-black flex flex-col pb-16 xl:pb-0">
+  <div class="overflow-hidden w-full h-screen bg-white flex flex-col pb-16 xl:pb-0">
     <div class="my-auto xl:h-5/6 w-full flex flex-col bg-white">
       <div
         class="relative w-full justify-center items-center bg-black flex flex-col mt-10 pt-10 xl:mt-20 xl:pt-20 pb-10 px-10"
@@ -22,7 +22,7 @@
           />
         </svg>
         <svg
-          class="relative fill-white stroke-white w-full xl:w-1/2"
+          class="relative fill-white stroke-white w-full sm:w-5/6 xl:w-1/2"
           viewBox="0 0 1523 558"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -40,29 +40,60 @@
           />
         </svg>
         <img
-          class="absolute bottom-0 right-0 xl:right-1/4 translate-y-1/3 w-1/2 xl:w-1/4"
+          class="cursor-pointer transition ease-in-out absolute bottom-2 sm:bottom-0 right-5 sm:right-10 md:right-16 xl:right-1/4 translate-y-1/3 w-1/2 sm:w-[45%] xl:w-[26%]"
+          :class="{
+            'translate-y-[15%] xs:translate-y-10 md:translate-y-20 -rotate-[20deg]': wheele
+          }"
           :src="Motorcycle"
+          @click="toggleWheeleAnimation"
         />
       </div>
     </div>
-    <div class="flex flex-col w-full h-full items-center justify-center bg-white space-y-10">
-      <div class="flex flex-col items-center pt-10">
+    <div class="flex flex-col items-center w-full h-full bg-white justify-around sm:justify-end">
+      <div class="flex flex-col h-1/2">
         <span
-          class="text-2xl sm:text-4xl xl:text-6xl font-bold text-black uppercase tracking-wider"
+          class="text-xl sm:text-4xl xl:text-4xl font-bold text-black uppercase tracking-wider text-center"
         >
           Motorkerékpár szerviz
         </span>
         <span
-          class="text-sm sm:text-xl md:text-2xl xl:text-4xl font-bold text-stone-500 uppercase tracking-wider"
+          class="text-xs sm:text-xl md:text-2xl xl:text-3xl font-bold text-stone-500 uppercase tracking-wider text-center"
         >
           Utcai és terep motorok teljeskörű szervizelése
         </span>
       </div>
-      <span class="uppercase text-xl xl:text-3xl font-bold text-stone-500"> Valek Tamás </span>
+      <div>
+        <div class="flex items-center">
+          <svg-icon
+            class="text-white bg-black rounded-full p-2 w-10"
+            type="mdi"
+            :path="mdiPhone"
+            size="40"
+          />
+          <span class="text-2xl sm:text-4xl font-extrabold tracking-wide pb-1"
+            >+36 70 621 8189</span
+          >
+        </div>
+        <div class="flex items-center justify-center">
+          <span class="uppercase text-xl xl:text-3xl font-bold text-stone-500 pb-2">
+            Valek Tamás
+          </span>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import Motorcycle from '@/assets/motorcycle.png'
+import { mdiPhone } from '@mdi/js'
+import SvgIcon from '@jamescoyle/vue-icon'
+import { ref } from 'vue'
+
+const wheele = ref(false)
+
+const toggleWheeleAnimation = () => {
+  wheele.value = !wheele.value
+  setTimeout(() => (wheele.value = !wheele.value), 500)
+}
 </script>

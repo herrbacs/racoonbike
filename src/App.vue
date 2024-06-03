@@ -1,7 +1,7 @@
 <template>
   <div
     id="nav"
-    class="z-10 h-16 xl:h-auto overflow-hidden absolute items-center xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2 shadow-lg shadow-slate-900"
+    class="z-10 h-16 xl:h-auto overflow-hidden absolute items-center xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2 shadow-lg shadow-slate-900 max-[1920px]:"
   >
     <RouterLink
       :class="[
@@ -82,8 +82,13 @@ const setRandomTransition = () => {
     'scale-slide-up',
     'scale-slide-down'
   ]
-  const randomIndex = Math.floor(Math.random() * transitions.length)
-  transitionName.value = transitions[randomIndex]
+
+  const potentialTransitions = transitions.filter(
+    (transition) => transition !== transitionName.value
+  )
+
+  const randomIndex = Math.floor(Math.random() * potentialTransitions.length)
+  transitionName.value = potentialTransitions[randomIndex]
 }
 
 onMounted(() => {
