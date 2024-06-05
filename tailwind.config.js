@@ -12,7 +12,7 @@ export default {
         'racoon-gray': '#a7a9ac'
       },
       screens: {
-        xsm: '390px'
+        xsm: '470px'
       }
     }
   },
