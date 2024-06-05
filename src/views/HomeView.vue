@@ -57,7 +57,7 @@
           Motorkerékpár szerviz
         </span>
         <span
-          class="text-xs sm:text-xl md:text-2xl xl:text-3xl font-bold text-stone-500 uppercase tracking-wider text-center"
+          class="text-xs sm:text-xl md:text-2xl xl:text-3xl font-bold text-racoon-gray uppercase tracking-wider text-center"
         >
           Utcai és terep motorok teljeskörű szervizelése
         </span>
@@ -75,7 +75,7 @@
           >
         </div>
         <div class="flex items-center justify-center">
-          <span class="uppercase text-xl xl:text-3xl font-bold text-stone-500 pb-2">
+          <span class="uppercase text-xl xl:text-3xl font-bold text-racoon-gray pb-2">
             Valek Tamás
           </span>
         </div>

@@ -4,7 +4,17 @@ export default {
   content: [],
   darkMode: false,
   theme: {
-    extend: {}
+    extend: {
+      maxWidth: {
+        'screen-3xl': '1920px'
+      },
+      colors: {
+        'racoon-gray': '#a7a9ac'
+      },
+      screens: {
+        xsm: '390px'
+      }
+    }
   },
   plugins: []
 }
