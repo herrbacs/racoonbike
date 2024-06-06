@@ -13,6 +13,8 @@
   "dependencies": {
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/js": "^7.4.47",
+    "@tsparticles/vue3": "^3.0.1",
+    "tsparticles": "^3.4.0",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
