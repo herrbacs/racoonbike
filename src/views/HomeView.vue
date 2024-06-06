@@ -1,5 +1,5 @@
 <template>
-  <div class="overflow-hidden w-full h-[100svh] bg-white flex flex-col pb-16 xl:pb-0">
+  <div class="absolute overflow-hidden w-full h-[100svh] bg-white flex flex-col pb-16 xl:pb-0">
     <div class="my-auto xl:h-5/6 w-full flex flex-col bg-white">
       <div
         class="relative w-full justify-center items-center bg-black flex flex-col mt-10 pt-10 xl:mt-20 xl:pt-20 pb-10 px-10"
