@@ -1,8 +1,8 @@
 <template>
-  <div class="overflow-hidden w-full h-[100svh] bg-green-900 flex pb-16 xl:pb-0">
-    <div class="h-full w-full flex">
-      <h1 class="text-white m-auto">Geléria</h1>
-    </div>
+  <div
+    class="absolute w-full h-[100svh] flex flex-col pb-16 xl:pb-0 items-center justify-center space-y-5"
+  >
+    <div class="bg-black text-white uppercase text-4xl p-3">Galéria</div>
   </div>
 </template>
 
