@@ -1,7 +1,7 @@
 <template>
   <div
     id="nav"
-    class="z-10 h-16 xl:h-auto overflow-hidden absolute items-center xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2 shadow-lg shadow-slate-900"
+    class="z-50 h-16 xl:h-auto overflow-hidden absolute items-center xl:space-x-0 w-full xl:w-auto flex xl:block xl:rounded-r-xl bottom-0 xl:bottom-1/2 xl:translate-y-1/2 shadow-lg shadow-slate-900"
   >
     <RouterLink
       :class="[
@@ -55,6 +55,7 @@
       </RouterLink>
     </template>
   </div>
+  <ParticlesBackground />
   <router-view v-slot="{ Component }">
     <transition :name="transitionName">
       <component :is="Component" />
@@ -67,6 +68,7 @@ import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiRacingHelmet, mdiImage, mdiMapMarkerCircle } from '@mdi/js'
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import ParticlesBackground from './components/ParticlesBackground.vue'
 
 const route = useRoute()
 
@@ -80,22 +82,29 @@ const isActive = (path) => {
   return route.path === path
 }
 
-const transitionName = ref('scale-slide-left')
+const transitionName = ref('slide-lr')
 
 const setRandomTransition = () => {
   const transitions = [
-    'scale-slide-left',
-    'scale-slide-right',
-    'scale-slide-up',
-    'scale-slide-down'
-  ]
+    'slide-lr',
+    'slide-lt',
+    'slide-lb',
+    'slide-ll',
+    'slide-tt',
+    'slide-tb',
+    'slide-tl',
+    'slide-rr',
+    'slide-rt',
+    'slide-rb',
+    'slide-rl',
+    'slide-br',
+    'slide-bt',
+    'slide-bb',
+    'slide-bl'
+  ].filter((transition) => transition !== transitionName.value)
 
-  const potentialTransitions = transitions.filter(
-    (transition) => transition !== transitionName.value
-  )
-
-  const randomIndex = Math.floor(Math.random() * potentialTransitions.length)
-  transitionName.value = potentialTransitions[randomIndex]
+  const randomIndex = Math.floor(Math.random() * transitions.length)
+  transitionName.value = transitions[randomIndex]
 }
 
 onMounted(() => {
@@ -108,67 +117,380 @@ watch(route, () => {
 </script>
 
 <style>
-.scale-slide-left-enter-active,
-.scale-slide-left-leave-active,
-.scale-slide-right-enter-active,
-.scale-slide-right-leave-active,
-.scale-slide-up-enter-active,
-.scale-slide-up-leave-active,
-.scale-slide-down-enter-active,
-.scale-slide-down-leave-active {
+/* FROM LEFT -------------------------------------*/
+
+/* slide-lr */
+.slide-lr-enter-active,
+.slide-lr-leave-active {
   position: absolute;
   transition: all 0.85s ease;
 }
 
-.scale-slide-left-enter-from {
+.slide-lr-enter-from {
   left: -100%;
 }
-.scale-slide-left-enter-to {
+
+.slide-lr-enter-to {
   left: 0%;
 }
-.scale-slide-left-leave-from {
-  transform: scale(1);
-}
-.scale-slide-left-leave-to {
-  transform: scale(1);
-}
 
-.scale-slide-right-enter-from {
-  right: -100%;
-}
-.scale-slide-right-enter-to {
+.slide-lr-leave-from {
   right: 0%;
 }
-.scale-slide-right-leave-from {
-  transform: scale(1);
-}
-.scale-slide-right-leave-to {
-  transform: scale(1);
+
+.slide-lr-leave-to {
+  right: -100%;
 }
 
-.scale-slide-up-enter-from {
-  top: -100%;
+/* slide-lt */
+.slide-lt-enter-active,
+.slide-lt-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
 }
-.scale-slide-up-enter-to {
+
+.slide-lt-enter-from {
+  left: -100%;
+}
+
+.slide-lt-enter-to {
+  left: 0%;
+}
+
+.slide-lt-leave-from {
   top: 0%;
 }
-.scale-slide-up-leave-from {
-  transform: scale(1);
-}
-.scale-slide-up-leave-to {
-  transform: scale(1);
+
+.slide-lt-leave-to {
+  top: -100%;
 }
 
-.scale-slide-down-enter-from {
-  bottom: -100%;
+/* slide-lb */
+.slide-lb-enter-active,
+.slide-lb-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
 }
-.scale-slide-down-enter-to {
+
+.slide-lb-enter-from {
+  left: -100%;
+}
+
+.slide-lb-enter-to {
+  left: 0%;
+}
+
+.slide-lb-leave-from {
   bottom: 0%;
 }
-.scale-slide-down-leave-from {
-  transform: scale(1);
+
+.slide-lb-leave-to {
+  bottom: -100%;
 }
-.scale-slide-down-leave-to {
-  transform: scale(1);
+
+/* slide-ll */
+.slide-ll-enter-active,
+.slide-ll-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-ll-enter-from {
+  left: -100%;
+}
+
+.slide-ll-enter-to {
+  left: 0%;
+}
+
+.slide-ll-leave-from {
+  left: 0%;
+}
+
+.slide-ll-leave-to {
+  left: -100%;
+}
+
+/* FROM TOP -------------------------------------*/
+*/
+
+/* slide-tr */
+.slide-tr-enter-active,
+.slide-tr-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-tr-enter-from {
+  top: -100%;
+}
+
+.slide-tr-enter-to {
+  top: 0%;
+}
+
+.slide-tr-leave-from {
+  right: 0%;
+}
+
+.slide-tr-leave-to {
+  right: -100%;
+}
+
+/* slide-tt */
+.slide-tt-enter-active,
+.slide-tt-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-tt-enter-from {
+  top: -100%;
+}
+
+.slide-tt-enter-to {
+  top: 0%;
+}
+
+.slide-tt-leave-from {
+  top: 0%;
+}
+
+.slide-tt-leave-to {
+  top: -100%;
+}
+
+/* slide-tb */
+.slide-tb-enter-active,
+.slide-tb-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-tb-enter-from {
+  top: -100%;
+}
+
+.slide-tb-enter-to {
+  top: 0%;
+}
+
+.slide-tb-leave-from {
+  bottom: 0%;
+}
+
+.slide-tb-leave-to {
+  bottom: -100%;
+}
+
+/* slide-tl */
+.slide-tl-enter-active,
+.slide-tl-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-tl-enter-from {
+  top: -100%;
+}
+
+.slide-tl-enter-to {
+  top: 0%;
+}
+
+.slide-tl-leave-from {
+  left: 0%;
+}
+
+.slide-tl-leave-to {
+  left: -100%;
+}
+
+/* FROM RIGHT -------------------------------------*/
+
+/* slide-rr */
+.slide-rr-enter-active,
+.slide-rr-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-rr-enter-from {
+  right: -100%;
+}
+
+.slide-rr-enter-to {
+  right: 0%;
+}
+
+.slide-rr-leave-from {
+  right: 0%;
+}
+
+.slide-rr-leave-to {
+  right: -100%;
+}
+
+/* slide-rt */
+.slide-rt-enter-active,
+.slide-rt-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-rt-enter-from {
+  right: -100%;
+}
+
+.slide-rt-enter-to {
+  right: 0%;
+}
+
+.slide-rt-leave-from {
+  top: 0%;
+}
+
+.slide-rt-leave-to {
+  top: -100%;
+}
+
+/* slide-rb */
+.slide-rb-enter-active,
+.slide-rb-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-rb-enter-from {
+  right: -100%;
+}
+
+.slide-rb-enter-to {
+  right: 0%;
+}
+
+.slide-rb-leave-from {
+  bottom: 0%;
+}
+
+.slide-rb-leave-to {
+  bottom: -100%;
+}
+
+/* slide-rl */
+.slide-rl-enter-active,
+.slide-rl-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-rl-enter-from {
+  right: -100%;
+}
+
+.slide-rl-enter-to {
+  right: 0%;
+}
+
+.slide-rl-leave-from {
+  left: 0%;
+}
+
+.slide-rl-leave-to {
+  left: -100%;
+}
+
+/* FROM BOTTOM -------------------------------------*/
+
+/* slide-br */
+.slide-br-enter-active,
+.slide-br-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-br-enter-from {
+  bottom: -100%;
+}
+
+.slide-br-enter-to {
+  bottom: 0%;
+}
+
+.slide-br-leave-from {
+  right: 0%;
+}
+
+.slide-br-leave-to {
+  right: -100%;
+}
+
+/* slide-bt */
+.slide-bt-enter-active,
+.slide-bt-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-bt-enter-from {
+  bottom: -100%;
+}
+
+.slide-bt-enter-to {
+  bottom: 0%;
+}
+
+.slide-bt-leave-from {
+  top: 0%;
+}
+
+.slide-bt-leave-to {
+  top: -100%;
+}
+
+/* slide-bb */
+.slide-bb-enter-active,
+.slide-bb-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-bb-enter-from {
+  bottom: -100%;
+}
+
+.slide-bb-enter-to {
+  bottom: 0%;
+}
+
+.slide-bb-leave-from {
+  bottom: 0%;
+}
+
+.slide-bb-leave-to {
+  bottom: -100%;
+}
+
+/* slide-bl */
+.slide-bl-enter-active,
+.slide-bl-leave-active {
+  position: absolute;
+  transition: all 0.85s ease;
+}
+
+.slide-bl-enter-from {
+  bottom: -100%;
+}
+
+.slide-bl-enter-to {
+  bottom: 0%;
+}
+
+.slide-bl-leave-from {
+  left: 0%;
+}
+
+.slide-bl-leave-to {
+  left: -100%;
 }
 </style>
