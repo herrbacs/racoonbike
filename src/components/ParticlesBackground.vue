@@ -1,8 +1,8 @@
 <template>
   <div>
     <vue-particles
+      class="z-10"
       id="tsparticles"
-      :particlesLoaded="particlesLoaded"
       :options="{
         background: {
           color: {
