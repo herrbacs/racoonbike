@@ -1,7 +1,6 @@
 <template>
   <div class="overflow-hidden w-full h-[100svh] flex pb-16 xl:pb-0 items-center justify-center">
-    <ParticlesBackground></ParticlesBackground>
-    <div class="max-w-screen-3xl w-full h-full flex items-center justify-center">
+    <div class="z-20 max-w-screen-3xl w-full h-full flex items-center justify-center">
       <div class="flex flex-col w-full xl:w-2/3 text-white space-y-4">
         <div
           v-for="(row, ri) in tables"
@@ -24,7 +23,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import ParticlesBackground from '@/components/ParticlesBackground.vue'
 
 const tables = ref([
   [
