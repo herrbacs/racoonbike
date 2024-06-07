@@ -50,7 +50,6 @@ import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiPhone, mdiEmail, mdiMapMarkerCircle, mdiFacebook } from '@mdi/js'
 
 const center = { lat: 46.557522604963715, lng: 20.67644977668035 }
-console.log(import.meta.env.APP_GOOGLE_MAP_API_KEY)
 const key = ref(import.meta.env.APP_GOOGLE_MAP_API_KEY)
 const contacInfo = ref([
   { icon: mdiPhone, text: '+36 70 621 8189' },
