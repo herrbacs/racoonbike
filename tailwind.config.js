@@ -13,6 +13,15 @@ export default {
       },
       screens: {
         xsm: '470px'
+      },
+      keyframes: {
+        breath: {
+          '0%, 100%': { transform: 'translateY(-50%)' },
+          '50%': { transform: 'translateY(-54%)' }
+        }
+      },
+      animation: {
+        breath: 'breath 3s ease-in-out infinite'
       }
     }
   },

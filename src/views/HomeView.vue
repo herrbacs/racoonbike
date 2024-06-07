@@ -5,7 +5,7 @@
         class="relative w-full justify-center items-center bg-black flex flex-col mt-10 pt-10 xl:mt-20 xl:pt-20 pb-10 px-10"
       >
         <svg
-          class="absolute top-0 -translate-y-1/2 w-24 xl:w-48"
+          class="absolute top-0 w-24 xl:w-48 animate-breath"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="116.663 78.247 144.746 118.608"
         >
