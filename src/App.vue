@@ -65,7 +65,7 @@
 
 <script setup>
 import SvgIcon from '@jamescoyle/vue-icon'
-import { mdiRacingHelmet, mdiImage, mdiMapMarkerCircle } from '@mdi/js'
+import { mdiRacingHelmet, mdiMapMarkerCircle } from '@mdi/js'
 import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import ParticlesBackground from './components/ParticlesBackground.vue'
@@ -74,7 +74,7 @@ const route = useRoute()
 
 const menuItems = [
   { icon: mdiRacingHelmet, routeTo: '/szolgaltatasok' },
-  { icon: mdiImage, routeTo: '/galeria' },
+  // { icon: mdiImage, routeTo: '/galeria' },
   { icon: mdiMapMarkerCircle, routeTo: '/elerhetoseg' }
 ]
 
