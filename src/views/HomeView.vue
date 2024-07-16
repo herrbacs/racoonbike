@@ -5,9 +5,15 @@
         class="relative w-full justify-center items-center bg-black flex flex-col mt-10 pt-10 xl:mt-20 xl:pt-20 pb-10 px-10"
       >
         <svg
-          class="absolute top-0 w-24 xl:w-48 animate-breath"
+          class="cursor-pointer transition-all ease-in duration-1000 absolute top-0 w-24 xl:w-48"
+          :class="{
+            'animate-wiggle': angry,
+            'animate-breath': !angry
+          }"
+          :style="calculateRacoonPosition()"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="116.663 78.247 144.746 118.608"
+          @click="toggleAngryAnimation"
         >
           <path
             id="path-1"
@@ -88,12 +94,37 @@
 import Motorcycle from '@/assets/motorcycle.png'
 import { mdiPhone } from '@mdi/js'
 import SvgIcon from '@jamescoyle/vue-icon'
-import { ref } from 'vue'
+import { reactive, ref } from 'vue'
 
 const wheele = ref(false)
+const angry = ref(false)
+const racoonPosition = ref(50)
 
 const toggleWheeleAnimation = () => {
   wheele.value = !wheele.value
   setTimeout(() => (wheele.value = !wheele.value), 500)
+}
+
+const calculateRacoonPosition = reactive(() => `left: ${racoonPosition.value}%;`)
+
+const toggleAngryAnimation = () => {
+  angry.value = !angry.value
+
+  const direction = Math.round(Math.random())
+  let randomChange = Math.floor(Math.random() * (20 - 10)) + 10
+
+  let newPosition = racoonPosition.value + (direction ? randomChange : -randomChange)
+
+  if (newPosition > 100) {
+    newPosition = racoonPosition.value - randomChange
+  }
+
+  if (newPosition < 0) {
+    newPosition = racoonPosition.value + randomChange
+  }
+
+  racoonPosition.value = newPosition
+
+  setTimeout(() => (angry.value = !angry.value), 1000)
 }
 </script>
