@@ -46,10 +46,8 @@
           />
         </svg>
         <img
-          class="cursor-pointer transition ease-in-out absolute bottom-2 sm:bottom-0 right-5 sm:right-10 md:right-16 xl:right-1/4 translate-y-1/3 w-1/2 sm:w-[45%] xl:w-[26%]"
-          :class="{
-            'translate-y-[15%] xs:translate-y-10 md:translate-y-20 -rotate-[20deg]': wheele
-          }"
+          class="cursor-pointer transition ease-in-out absolute translate-y-1/3"
+          :class="[motorcyclePosition, { 'animate-rideOut': wheele }]"
           :src="Motorcycle"
           @click="toggleWheeleAnimation"
         />
@@ -99,10 +97,17 @@ import { reactive, ref } from 'vue'
 const wheele = ref(false)
 const angry = ref(false)
 const racoonPosition = ref(50)
+const motorcyclePosition = ref(
+  'bottom-2 sm:bottom-0 right-5 sm:right-10 md:right-16 xl:right-1/4 w-1/2 sm:w-[45%] xl:w-[26%]'
+)
 
 const toggleWheeleAnimation = () => {
+  if (wheele.value) {
+    return
+  }
+
   wheele.value = !wheele.value
-  setTimeout(() => (wheele.value = !wheele.value), 500)
+  setTimeout(() => (wheele.value = !wheele.value), 5000)
 }
 
 const calculateRacoonPosition = reactive(() => `left: ${racoonPosition.value}%;`)
