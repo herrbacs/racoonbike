@@ -10,7 +10,7 @@
           <div
             v-for="(table, ti) in row"
             :key="ti"
-            class="bg-black hover:z-10 hover:bg-racoon-gray hover:text-black flex flex-col text-center justify-center py-2 px-5 uppercase text-[.48rem] xsm:text-sm sm:text-base md:text-xl lg:text-2xl font-bold -tracking-tighter cursor-pointer transition-transform ease-in-out hover:scale-[1.2]"
+            class="bg-black flex flex-col text-center justify-center py-2 px-5 uppercase text-[.48rem] xsm:text-sm sm:text-base md:text-xl lg:text-2xl font-bold -tracking-tighter cursor-default transition-transform ease-in-out hover:scale-[1.2]"
             :class="[table.polygon]"
           >
             <span v-for="(text, i) in table.text" :key="i">{{ text }}</span>
